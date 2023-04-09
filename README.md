@@ -578,3 +578,11 @@ SELECT * FROM employee_external_stage LIMIT 10;
 The below is the snapshot of fetched result.
 
 <img width="1341" alt="Screenshot 2023-04-09 at 1 12 07 PM" src="https://user-images.githubusercontent.com/123494344/230760619-8f5d5951-2378-4b96-8eb6-1048ad0baab8.png">
+
+### Snapshot of Role and Trust relationship
+<img width="1178" alt="Screenshot 2023-04-09 at 2 34 03 PM" src="https://user-images.githubusercontent.com/123494344/230764588-7f5f5d15-8ce6-409d-9d23-73220d150a46.png">
+
+### Snapshot of Bucket
+<img width="1109" alt="Screenshot 2023-04-09 at 2 35 31 PM" src="https://user-images.githubusercontent.com/123494344/230764604-81430b53-e992-4056-aabb-ee8a0dd76fc7.png">
+
+GRANT ALL PRIVILEGES ON WAREHOUSE assignment_wh TO ROLE DEVELOPER;
