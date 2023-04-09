@@ -584,5 +584,3 @@ The below is the snapshot of fetched result.
 
 ### Snapshot of Bucket
 <img width="1109" alt="Screenshot 2023-04-09 at 2 35 31 PM" src="https://user-images.githubusercontent.com/123494344/230764604-81430b53-e992-4056-aabb-ee8a0dd76fc7.png">
-
-GRANT ALL PRIVILEGES ON WAREHOUSE assignment_wh TO ROLE DEVELOPER;
