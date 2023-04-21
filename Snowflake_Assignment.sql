@@ -71,6 +71,26 @@ select
     *
 from
     variant_table;
+    
+-- Creating variant version using parse_json directly from the internal stage created earlier
+CREATE OR REPLACE TABLE employees_variant
+AS (
+SELECT PARSE_JSON('{
+    "ID": ' || t.$1 || ',
+    "First_Name": "' || t.$2 || '",
+    "Last_Name": "' || t.$3 || '",
+    "Email": "' || t.$4 || '",
+    "Department": " '|| t.$5 || ' ",
+    "Contact_no": "'|| t.$6 || '",
+    "City": "'|| t.$7 || '",
+  }') AS employee_data
+  FROM @internal_stage (pattern => '.*employee.*') t
+);
+
+select
+    *
+from
+employees_variant;
 -- Question - 8
     -- Load the file into an external and internal stage
     -- We created a file format called my_csv_format which holds data of format csv
