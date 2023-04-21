@@ -189,6 +189,26 @@ The below is the snapshot of fetched rows.
 
 <img width="1106" alt="Screenshot 2023-04-08 at 7 50 56 PM" src="https://user-images.githubusercontent.com/123494344/230758387-7bb1678a-f1e2-426c-841a-b7e7aae135b0.png">
 
+Creating variant version using parse_json directly from the internal stage created earlier.
+
+```
+CREATE OR REPLACE TABLE employees_variant
+AS (
+SELECT PARSE_JSON('{
+    "ID": ' || t.$1 || ',
+    "First_Name": "' || t.$2 || '",
+    "Last_Name": "' || t.$3 || '",
+    "Email": "' || t.$4 || '",
+    "Department": " '|| t.$5 || ' ",
+    "Contact_no": "'|| t.$6 || '",
+    "City": "'|| t.$7 || '",
+  }') AS employee_data
+  FROM @internal_stage (pattern => '.*employee.*') t
+);
+```
+The below is the snapshot of fetched rows.
+<img width="1430" alt="Screenshot 2023-04-21 at 11 34 33 AM" src="https://user-images.githubusercontent.com/123494344/233553197-4e5d77a3-e740-46b5-8798-4e0fc68daddb.png">
+
 ### Question - 8
 
 Load the file into an external and internal stage.
